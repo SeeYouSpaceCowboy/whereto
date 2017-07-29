@@ -1,5 +1,62 @@
-body {
+* {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+  text-align: center;
+}
+
+.App > div {
+  width: 70%;
+}
+
+.background {
+  background: url(../image/background.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 1px;
+  margin-bottom: 0.5em;
+}
+
+p { line-height: 1.25em; }
+
+.title {
+  color: white;
+  margin: 1em;
+}
+
+input, button {
+  padding: 1em;
+}
+
+input {
+  border: 1px solid #ddd;
+}
+
+button {
+  border: 1px solid #ddd;
+  background-color: white;
+}
+
+.size-large {
+  height: 10em;
+  width: 10em;
+  float: left;
+  margin-right: 1em;
 }
