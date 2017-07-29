@@ -1,14 +1,40 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { fetchYelpSearchResults } from './actions/searchActions'
+import SearchResult from './components/SearchResult'
 
 class App extends Component {
+  componentWillMount() {
+    this.props.fetchYelpSearchResults('')
+  }
+
   render() {
     return (
       <div className="App">
-        <input placeholder='Type a restaurant name, location to search. . .'/>
-        <button>Search</button>
+        <div>
+          <h1 className='title'>Lets Eat</h1>
+          <input className='search-bar' placeholder='Type a restaurant name, location to search. . .'/>
+          <SearchResult />
+          <SearchResult />
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    yelpResults: state.search
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchYelpSearchResults: input => {
+      let action = fetchYelpSearchResults(input)
+      dispatch(action)
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
