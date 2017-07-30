@@ -4,11 +4,13 @@ import { fetchYelpSearchResults } from './actions/searchActions'
 import SearchResult from './components/SearchResult'
 
 class App extends Component {
-  componentWillMount() {
-    this.props.fetchYelpSearchResults('')
+  componentDidMount() {
+    this.props.fetchYelpSearchResults({ term: 'food', location: 'new york' })
   }
 
   render() {
+    let results = this.props.yelpResults
+    debugger
     return (
       <div className="App">
         <div>
