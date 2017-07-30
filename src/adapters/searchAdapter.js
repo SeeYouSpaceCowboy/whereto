@@ -6,10 +6,7 @@ axios.defaults.baseURL = dev_url
 export const searchAdapter = {
   fetchYelpSearchResults: query => {
     return axios.post(null, query)
-      .then(response => {
-        debugger
-        return response.data.yelp
-      })
+      .then(response => response.data.yelp)
       .catch(error => error)
   }
 }
