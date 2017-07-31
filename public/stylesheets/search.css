@@ -49,7 +49,7 @@
   z-index: 1;
 }
 
-.search-filter-dropdown-content a, .search-price-dropdown-content a {
+.search-filter-dropdown-content input, .search-price-dropdown-content input {
   color: black;
   padding: 1.25em 1em;
   text-decoration: none;
