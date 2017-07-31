@@ -1,6 +1,6 @@
 .search-bar, .search-result { width: 100%; }
 
-.search-term, .search-location, .search-filter, .serach-price, .search-result, .search-button {
+.search-term, .search-location, .search-filter, .search-price, .search-result, .search-button {
   background-color: white;
   border: none;
   border-radius: 1px;
