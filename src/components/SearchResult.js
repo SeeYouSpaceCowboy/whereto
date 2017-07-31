@@ -23,7 +23,7 @@ export default class SearchResult extends Component {
             </h5>
           </div>
           <h2>{ result.name }</h2>
-          <h4>{ result.rating } Stars { result.review_count } Reviews</h4>
+          <h4>{ result.rating } Stars - { result.review_count } Reviews</h4>
           <p>{ result.location.address1 }, { result.location.city } { result.location.state }</p>
           <p>{ result.display_phone }</p>
           <div className='search-result-category'>
