@@ -55,6 +55,7 @@
   text-decoration: none;
   display: block;
   border-bottom: 1px solid #ddd;
+  width: 100%;
 }
 
 .show { display:block; }
