@@ -34,11 +34,23 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5em;
 }
 
-p { line-height: 1.25em; }
+p {
+  line-height: 1.25em;
+  margin-bottom: 0.5em;
+}
 
 .title {
   color: white;
   margin: 1em;
+}
+
+a, a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #666;
 }
 
 input, button {
@@ -54,9 +66,14 @@ button {
   background-color: white;
 }
 
+.size-small {
+  height: 1em;
+  width: 1em;
+}
+
 .size-large {
-  height: 10em;
-  width: 10em;
+  height: 15em;
+  width: 15em;
   float: left;
   margin-right: 1em;
 }

@@ -1,20 +1,72 @@
 .search-bar, .search-result {
+  width: 100%;
+}
+
+.search-term, .search-location, .search-filter, .search-result, .search-button {
   background-color: white;
   border: none;
   border-radius: 1px;
   box-shadow: 0px 0px 10px #000;
-  width: 100%;
 }
 
-.search-bar {
+.search-term, .search-location, .search-filter, .search-button {
   font-size: 1.5em;
   margin-top: 0.5em;
   margin-bottom: 2em;
   padding: 1em;
 }
 
+.search-term {
+  width: 45%;
+  margin-right: 2.5%;
+}
+
+.search-location {
+  width: 20%;
+  margin-right: 2.5%;
+}
+
+.search-filter {
+  width: 20%;
+  margin-right: 2.5%;
+}
+
 .search-result {
+  overflow: auto;
+  margin-bottom: 1.75em;
+  border-radius: 5px;
+}
+
+.search-result-img {
+  float: left;
+  display: block;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.search-result-info {
+  min-height: 14em;
+  position: relative;
+  margin-left: 15em;
   padding: 2em;
   text-align: left;
-  margin-bottom: 1.75em;
+}
+
+.search-result-category {
+  position: absolute;
+  bottom: 0;
+}
+
+.search-result-category-tags {
+  background-color: #eee;
+  margin-right: 0.4em;
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+}
+
+.search-button {
+  width: 7.5%;
+  background-color: black;
+  color: white;
+  overflow: hidden;
 }
