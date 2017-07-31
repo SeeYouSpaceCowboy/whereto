@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchYelpSearchResults } from './actions/searchActions'
-import SearchBar from './components/SearchBar'
 import SearchResult from './components/SearchResult'
 
 class App extends Component {
@@ -11,7 +10,9 @@ class App extends Component {
     this.state = {
       search: {
         term: 'food',
-        location: 'queens'
+        location: 'queens',
+        sort_by: 'rating',
+        price: ''
       }
     }
 
@@ -33,7 +34,7 @@ class App extends Component {
         <div>
           {
             results.map((result, i) => {
-              return <a key={ i } href={ result.url }><SearchResult result={ result } /></a>
+              return <SearchResult key={ i } result={ result } />
             })
           }
         </div>
@@ -47,7 +48,6 @@ class App extends Component {
 
   render() {
     let results = this.props.yelpResults.search
-    debugger
 
     return (
       <div className="App">
@@ -63,9 +63,6 @@ class App extends Component {
               ref='location'
               className='search-location'
               placeholder='Location. . .' />
-            <input
-              className='search-filter'
-              placeholder='Price' />
             <button className='search-button' onClick={ this.handleClick } ><img className='size-small' alt='search' src='./image/search.png' /></button>
           </div>
           <div>
