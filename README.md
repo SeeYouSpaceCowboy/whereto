@@ -1,6 +1,6 @@
-# Yelp Search
+# Yelp Search (2/2) - ReactJs Front-end
 
-A ReactJs application using Yelp!'s API to search for restaurants.
+A ReactJs application using Yelp!'s API to search for restaurants. This is the front-end of a two part project.
 
 ## Getting Started
 
@@ -12,3 +12,4 @@ Open terminal to your favorite working directory. Run the following lines of cod
  $ npm i
  $ npm start
  ```
+Once you've run this project make sure to also clone and run the back-end of this project here https://github.com/SeeYouSpaceCowboy/yelp-search-nodejs.git
