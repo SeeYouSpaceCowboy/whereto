@@ -12,12 +12,22 @@ class App extends Component {
         term: 'food',
         location: 'queens',
         sort_by: 'rating',
-        price: ''
+        price: 1
       }
     }
 
     this.renderResults = this.renderResults.bind(this)
+    this.handleFilterDropdown = this.handleFilterDropdown.bind(this)
+    this.handlePriceDropdown = this.handlePriceDropdown.bind(this)
     this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleFilterDropdown() {
+    document.getElementById("search-filter-dropdown-content").classList.toggle("show");
+  }
+
+  handlePriceDropdown() {
+    document.getElementById("search-price-dropdown-content").classList.toggle("show");
   }
 
   handleClick(event) {
@@ -53,18 +63,42 @@ class App extends Component {
       <div className="App">
         <div>
           <h1 className='title'>WhereTo</h1>
+
           <div className='seach-bar'>
             <input
               ref='term'
               className='search-term'
               placeholder='Type a restaurant name, category, etc to search. . .'
               onChange={ this.handleChange } />
+
             <input
               ref='location'
               className='search-location'
               placeholder='Location. . .' />
+
+            <div className="search-filter-dropdown-view">
+              <input onClick={ this.handleFilterDropdown } className="search-filter" value='Best Match' readonly='readonly'/>
+              <div id="search-filter-dropdown-content" className="search-filter-dropdown-content">
+                <a href="#home">Best Match</a>
+                <a href="#about">Rating</a>
+                <a href="#contact">Review Count</a>
+                <a href="#contact">Distance</a>
+              </div>
+            </div>
+
+            <div className="search-price-dropdown-view">
+              <input onClick={ this.handlePriceDropdown } className="search-price" value='Price' readonly='readonly'/>
+              <div id="search-price-dropdown-content" className="search-price-dropdown-content">
+                <a href="#home">$</a>
+                <a href="#about">$$</a>
+                <a href="#contact">$$$</a>
+                <a href="#contact">$$$$</a>
+              </div>
+            </div>
+
             <button className='search-button' onClick={ this.handleClick } ><img className='size-small' alt='search' src='./image/search.png' /></button>
           </div>
+
           <div>
             { this.renderResults(results) }
           </div>
