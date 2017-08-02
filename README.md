@@ -12,4 +12,4 @@ Open terminal to your favorite working directory. Run the following lines of cod
  $ npm i
  $ npm start
  ```
-Once you've run this project make sure to also clone and run the back-end of this project here https://github.com/SeeYouSpaceCowboy/yelp-search-nodejs.git
+Make sure to also clone and have the back-end of this project [here](https://github.com/SeeYouSpaceCowboy/yelp-search-nodejs.git){:target="_blank"} running before running the front-end.
