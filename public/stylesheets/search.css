@@ -8,14 +8,14 @@
 }
 
 .search-term, .search-location, .search-filter, .search-price, .search-button {
-  font-size: 1.5em;
+  font-size: 1.25em;
   margin-top: 0.5em;
   margin-bottom: 2em;
-  padding: 1em;
+  padding: 1.25em;
 }
 
 .search-term {
-  width: 37.5%;
+  width: 36.5%;
   margin-right: 2.5%;
 }
 
@@ -26,7 +26,7 @@
 
 .search-filter-dropdown-view { width: 17.5%; }
 
-.search-price-dropdown-view { width: 10%; }
+.search-price-dropdown-view { width: 11%; }
 
 .search-filter-dropdown-view, .search-price-dropdown-view {
   margin-right: 2.5%;
@@ -50,12 +50,12 @@
 }
 
 .search-filter-dropdown-content input, .search-price-dropdown-content input {
-  color: black;
-  padding: 1.25em 1em;
-  text-decoration: none;
-  display: block;
-  border-bottom: 1px solid #ddd;
   width: 100%;
+  padding: 1.25em 1em;
+  border: none;
+  border-top: 1px solid #ddd;
+  font-size: 1.25em;
+  background-color: #eee;
 }
 
 .show { display:block; }
@@ -69,6 +69,8 @@
 .search-result-img {
   float: left;
   display: block;
+  margin-right: 1em;
+  width: 18em;
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -76,7 +78,7 @@
 .search-result-info {
   min-height: 14em;
   position: relative;
-  margin-left: 15em;
+  margin-left: 18em;
   padding: 2em;
   text-align: left;
 }
