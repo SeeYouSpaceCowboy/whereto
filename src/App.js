@@ -9,43 +9,48 @@ class App extends Component {
 
     this.state = {
       search: {
-        term: 'food',
-        location: 'queens',
-        sort_by: 'best_match',
-        price: ''
+        term:     'food',
+        location: 'new york',
+        sort_by:  'best_match',
+        price:    ''
       }
     }
 
-    this.renderResults = this.renderResults.bind(this)
-    this.handleFilterDropdown = this.handleFilterDropdown.bind(this)
-    this.handlePriceDropdown = this.handlePriceDropdown.bind(this)
-    this.dropdownPick = this.dropdownPick.bind(this)
-    this.renderFilterDropdownValue = this.renderFilterDropdownValue.bind(this)
-    this.renderPriceDropdownValue = this.renderPriceDropdownValue.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.renderResults              = this.renderResults.bind(this)
+    this.handleFilterDropdown       = this.handleFilterDropdown.bind(this)
+    this.handlePriceDropdown        = this.handlePriceDropdown.bind(this)
+    this.dropdownPick               = this.dropdownPick.bind(this)
+    this.renderFilterDropdownValue  = this.renderFilterDropdownValue.bind(this)
+    this.renderPriceDropdownValue   = this.renderPriceDropdownValue.bind(this)
+    this.handleSubmit               = this.handleSubmit.bind(this)
+    this.handleEnterKey             = this.handleEnterKey.bind(this)
   }
 
   handleFilterDropdown() {
     document.getElementById("search-filter-dropdown-content").classList.toggle("show");
   }
 
+  handlePriceDropdown() {
+    document.getElementById("search-price-dropdown-content").classList.toggle("show");
+  }
+
   dropdownPick(event) {
-    const field = event.target.name
+    const field = event.target.parentElement.attributes.value.value
     const search = this.state.search
-    search[field] = event.target.value
+    search[field] = event.target.name
     this.setState({ search })
 
-    if(event.target.name === 'sort_by') this.handleFilterDropdown()
-    if(event.target.name === 'price') this.handlePriceDropdown()
+    if(field === 'sort_by') this.handleFilterDropdown()
+    if(field === 'price') this.handlePriceDropdown()
   }
 
   renderFilterDropdownValue() {
     switch(this.state.search.sort_by) {
-      case 'best_match': return 'Best Match'
-      case 'rating': return 'Rating'
-      case 'review_count': return 'Review Count'
-      case 'distance': return 'Distance'
-      default: return 'Best Match'
+      case 'best_match':    return 'Best Match'
+      case 'rating':        return 'Rating'
+      case 'review_count':  return 'Review Count'
+      case 'distance':      return 'Distance'
+      default:              return 'Best Match'
     }
   }
 
@@ -55,21 +60,27 @@ class App extends Component {
       case '2': return '$$'
       case '3': return '$$$'
       case '4': return '$$$$'
-      default: return 'None'
+      default:  return 'Price?'
     }
   }
 
-  handlePriceDropdown() {
-    document.getElementById("search-price-dropdown-content").classList.toggle("show");
-  }
-
-  handleClick(event) {
+  handleSubmit(event) {
     const search = this.state.search
+
     search['term'] = this.refs.term.value
+    if(this.refs.term.value === '') search['term'] = 'food'
+
     search['location'] = this.refs.location.value
+    if(this.refs.location.value === '') search['location'] = 'new york'
+
     this.setState({ search })
+
     this.props.fetchYelpSearchResults(this.state.search)
   }
+
+  handleEnterKey(event) { if(event.key === 'Enter') this.handleSubmit() }
+
+  componentDidMount() { this.props.fetchYelpSearchResults(this.state.search) }
 
   renderResults(results) {
     if(Object.keys(results).length !== 0 && results.constructor !== Object) {
@@ -85,10 +96,6 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.fetchYelpSearchResults(this.state.search)
-  }
-
   render() {
     let results = this.props.yelpResults.search
 
@@ -99,43 +106,60 @@ class App extends Component {
 
           <div className='seach-bar'>
             <input
-              ref='term'
               className='search-term'
-              placeholder='Type a restaurant name, category, etc to search. . .'
-              onChange={ this.handleChange } />
+              placeholder='What are you looking for?'
+              ref='term'
+              onKeyDown={ this.handleEnterKey }
+              autoFocus />
 
             <input
-              ref='location'
               className='search-location'
-              placeholder='Location. . .' />
+              placeholder='Where?'
+              ref='location'
+              onKeyDown={ this.handleEnterKey } />
 
-            <div className="search-filter-dropdown-view">
-              <input ref='filter' onClick={ this.handleFilterDropdown } className="search-filter" value={ this.renderFilterDropdownValue() } readOnly />
-              <div id="search-filter-dropdown-content" className="search-filter-dropdown-content">
-                <input name='sort_by' value='best_match' onClick={ this.dropdownPick } placeholder='Best Match' readOnly/>
-                <input name='sort_by' value='rating' onClick={ this.dropdownPick } placeholder='Rating' readOnly/>
-                <input name='sort_by' value='review_count' onClick={ this.dropdownPick } placeholder='Review Count' readOnly/>
-                <input name='sort_by' value='distance' onClick={ this.dropdownPick } placeholder='Distance' readOnly/>
+            <div name='' className="search-filter-dropdown-view">
+              <input
+                className="search-filter"
+                type='text'
+                value={ this.renderFilterDropdownValue() }
+                ref='filter'
+                onClick={ this.handleFilterDropdown }
+                readOnly />
+
+              <div id="search-filter-dropdown-content" className="search-filter-dropdown-content" value='sort_by'>
+                <input name='best_match' value='Best Match' onClick={ this.dropdownPick } readOnly/>
+                <input name='rating' value='Rating' onClick={ this.dropdownPick } readOnly/>
+                <input name='review_count' value='Review Count' onClick={ this.dropdownPick } readOnly/>
+                <input name='distance' value='Distance' onClick={ this.dropdownPick } readOnly/>
               </div>
             </div>
 
             <div className="search-price-dropdown-view">
-              <input ref='price' onClick={ this.handlePriceDropdown } className="search-price" value={ this.renderPriceDropdownValue() } readOnly />
-              <div id="search-price-dropdown-content" className="search-price-dropdown-content">
-                <input name='price' value='' onClick={ this.dropdownPick } placeholder='none' readOnly/>
-                <input name='price' value={ 1 } onClick={ this.dropdownPick } placeholder='$' readOnly/>
-                <input name='price' value={ 2 } onClick={ this.dropdownPick } placeholder='$$' readOnly/>
-                <input name='price' value={ 3 } onClick={ this.dropdownPick } placeholder='$$$' readOnly/>
-                <input name='price' value={ 4 } onClick={ this.dropdownPick } placeholder='$$$$' readOnly/>
+              <input
+                className="search-price"
+                value={ this.renderPriceDropdownValue() }
+                ref='price'
+                onClick={ this.handlePriceDropdown }
+                readOnly />
+
+              <div id="search-price-dropdown-content" className="search-price-dropdown-content" value='price'>
+                <input name='' value='None' onClick={ this.dropdownPick } readOnly/>
+                <input name='1' value='$' onClick={ this.dropdownPick } readOnly/>
+                <input name='2' value='$$' onClick={ this.dropdownPick } readOnly/>
+                <input name='3' value='$$$' onClick={ this.dropdownPick } readOnly/>
+                <input name='4' value='$$$$' onClick={ this.dropdownPick } readOnly/>
               </div>
             </div>
 
-            <button className='search-button' onClick={ this.handleClick } ><img className='size-small' alt='search' src='./image/search.png' /></button>
+            <button
+              className='search-button'
+              onClick={ this.handleSubmit } >
+                <img className='size-small' alt='search' src='./image/search.png' />
+            </button>
           </div>
 
-          <div>
-            { this.renderResults(results) }
-          </div>
+          <div>{ this.renderResults(results) }</div>
         </div>
       </div>
     );
@@ -143,9 +167,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    yelpResults: state.search
-  }
+  return { yelpResults: state.search }
 }
 
 const mapDispatchToProps = dispatch => {
