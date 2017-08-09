@@ -24,8 +24,7 @@ body,
 }
 
 .background {
-  background: url(../image/background.jpg) no-repeat center center fixed;
-  /*background: url(https://s-media-cache-ak0.pinimg.com/originals/9e/3e/72/9e3e72f10c9b327241504ae48b5793c6.jpg) no-repeat center center fixed;*/
+  background: url(../image/background-blur.jpg) no-repeat center center fixed;
   background-size: cover;
   height: 100%;
 }
@@ -36,9 +35,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  line-height: 1.25em;
+  line-height: 1em;
   margin-bottom: 0.5em;
   color: #666;
+  font-size: 0.9em;
 }
 
 .title {
