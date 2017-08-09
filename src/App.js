@@ -9,10 +9,11 @@ class App extends Component {
 
     this.state = {
       search: {
-        term:     'food',
+        term:     'fine dinner',
         location: 'new york',
         sort_by:  'best_match',
-        price:    ''
+        price:    '',
+        limit: 21
       }
     }
 
@@ -42,6 +43,8 @@ class App extends Component {
 
     if(field === 'sort_by') this.handleFilterDropdown()
     if(field === 'price') this.handlePriceDropdown()
+
+    this.props.fetchYelpSearchResults(this.state.search)
   }
 
   renderFilterDropdownValue() {
@@ -66,12 +69,8 @@ class App extends Component {
 
   handleSubmit(event) {
     const search = this.state.search
-
-    search['term'] = this.refs.term.value
-    if(this.refs.term.value === '') search['term'] = 'food'
-
-    search['location'] = this.refs.location.value
-    if(this.refs.location.value === '') search['location'] = 'new york'
+    if(this.refs.term.value !== '') search['term'] = this.refs.term.value
+    if(this.refs.location.value !== '') search['location'] = this.refs.location.value
 
     this.setState({ search })
 
@@ -85,7 +84,7 @@ class App extends Component {
   renderResults(results) {
     if(Object.keys(results).length !== 0 && results.constructor !== Object) {
       return(
-        <div>
+        <div className='search-result-grid'>
           {
             results.map((result, i) => {
               return <SearchResult key={ i } result={ result } />
