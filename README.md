@@ -36,6 +36,8 @@ Open terminal and run the following lines of code to clone and run this project.
  $ npm i
  $ npm start
  ```
+ This project should now be running locally on port `3000`.
+
 ### Installing the Back-end
 WhereTo consists of a front-end and a back-end. For this project to run you have to have both projects installed and running locally at the same time.
 
