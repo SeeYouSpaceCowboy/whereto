@@ -2,7 +2,7 @@
   <img
     src="where-to-logo.png"
     alt="WhereTo"
-    width="60" />
+    width="45" />
 </p>
 <h3 align="center">
   WhereTo
