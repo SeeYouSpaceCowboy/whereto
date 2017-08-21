@@ -19,11 +19,12 @@
 </p>
 
 ## Getting Started with WhereTo
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will get you a copy of the project up and running on your local machine for development.
 
 ### Prerequisites
 Things you need to install beforehand:
 * **npm** - Javascript package manager
+* [**WhereTo Backend**](https://github.com/SeeYouSpaceCowboy/yelp-search-nodejs.git) - WhereTo's backend repo. It's prefered that you install this first.
 
 ### Installing
 
