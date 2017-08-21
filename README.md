@@ -1,7 +1,7 @@
 <p align="center">
   <img
     src="logo.svg"
-    alt="Screenshot of WhereTo"
+    alt="WhereTo"
     width="45" />
 </p>
 <h3 style="text-align: center;">
