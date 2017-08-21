@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 Things you need to install beforehand:
-* **npm** - Javascript package manager
+* **npm** - Javascript package manager.
 * [**WhereTo Backend**](https://github.com/SeeYouSpaceCowboy/yelp-search-nodejs.git) - WhereTo's backend repo. It's prefered that you install this first.
 
 ### Installing
@@ -36,7 +36,10 @@ Open terminal and run the following lines of code to clone and run this project.
  $ npm i
  $ npm start
  ```
-Make sure to also clone and have the back-end of this project [here](https://github.com/SeeYouSpaceCowboy/yelp-search-nodejs.git) running before running the front-end.
+### Installing the Back-end
+WhereTo consists of a front-end and a back-end. For this project to run you have to have both projects installed and running locally at the same time.
+
+If haven't already, you should now clone and install the back-end of this project; instructions [here](https://github.com/SeeYouSpaceCowboy/yelp-search-nodejs.git).
 
 ## Built With
 * [Create React App](https://github.com/facebookincubator/create-react-app) - Create React apps with no build configuration.
