@@ -4,14 +4,10 @@
     alt="WhereTo"
     width="45" />
 </p>
-<h3 style="text-align: center;">
+<h3 align="center">
   WhereTo
 </h3>
-<p style="color: #aaa; text-align: center;">Yelp Search Client</p>
-
-<p align="center">
-
-</p>
+<p align="center" style="color: #999;">Yelp Search Client</p>
 
 <p align="center">
   <img
