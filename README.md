@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="logo.png"
+    src="where-to-logo.png"
     alt="WhereTo"
     width="60" />
 </p>
