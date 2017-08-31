@@ -32,7 +32,7 @@ Open terminal and run the following lines of code to clone and run this project.
 
  ```shell
  $ git clone https://github.com/SeeYouSpaceCowboy/yelp-search-reactjs.git
- $ cd yelp-search-reactjs
+ $ cd whereto
  $ npm i
  $ npm start
  ```
