@@ -6,7 +6,7 @@ export default class SearchResult extends Component {
 
     return (
       <div className='search-result'>
-        <img className='size-large search-result-img' src={ result.image_url } alt='No Image :('/>
+        <img className='size-large search-result-img' src={ result.image_url } alt='Missing :('/>
         <div className='search-result-info'>
           <h2>{ result.name }</h2>
           <h4>{ result.rating } Stars - { result.review_count } Reviews</h4>
