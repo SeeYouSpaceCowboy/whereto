@@ -21,8 +21,8 @@ class App extends Component {
         <div>
           <h1 className='title'>WhereTo</h1>
 
-          <SearchBar search={ this.fetchResults }/>
-          
+          <SearchBar executeSearch={ this.fetchResults }/>
+
           <SearchResultGrid results={ results }/>
         </div>
       </div>

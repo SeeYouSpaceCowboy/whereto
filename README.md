@@ -1,6 +1,6 @@
 <p align="center">
   <img
-    src="where-to-logo.png"
+    src="https://user-images.githubusercontent.com/7621982/30593316-1e6a3eb8-9d18-11e7-8679-820924706ed0.png"
     alt="WhereTo"
     width="30" />
 </p>
@@ -11,7 +11,7 @@
 
 <p align="center">
   <img
-    src="whereto-thumb.png"
+    src="https://user-images.githubusercontent.com/7621982/30593342-3460d8d0-9d18-11e7-801f-e63bd9edf469.png"
     alt="Screenshot of WhereTo"
     width="700" />
     </br>

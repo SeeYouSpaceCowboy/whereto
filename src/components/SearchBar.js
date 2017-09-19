@@ -40,7 +40,7 @@ export default class SearchBar extends Component {
     if(field === 'sort_by') this.handleFilterDropdown()
     if(field === 'price') this.handlePriceDropdown()
 
-    this.props.search(this.state.search)
+    this.props.executeSearch(this.state.search)
   }
 
   renderFilterDropdownValue() {
@@ -72,10 +72,10 @@ export default class SearchBar extends Component {
 
     this.setState({ search })
 
-    this.props.search(this.state.search)
+    this.props.executeSearch(this.state.search)
   }
 
-  componentDidMount() { this.props.search(this.state.search) }
+  componentDidMount() { this.props.executeSearch(this.state.search) }
 
   render() {
     return (
